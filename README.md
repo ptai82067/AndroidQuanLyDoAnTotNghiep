@@ -1,4 +1,4 @@
-﻿# Quản Lý Đồ Án Tốt Nghiệp
+# Quản Lý Đồ Án Tốt Nghiệp
 
 Dự án hướng tới một phần mềm android cung cấp một diễn đàn cho mọi người trao đổi, đăng các bài viết của chuyên gia. Đồng thời cũng hỗ trợ cho sinh viên trong việc cập nhật tiến độ đồ án, nhận thông báo từ nhà trường.
 
@@ -17,5 +17,4 @@ Dự án hướng tới một phần mềm android cung cấp một diễn đàn
 ## Register
 
 ![enter image description here](https://files.catbox.moe/jugwg0.png)
-
 
