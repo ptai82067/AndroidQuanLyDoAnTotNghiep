@@ -1,4 +1,4 @@
-package vn.edu.taipp.projectfinalexam;
+package vn.edu.taipp.projectfinalexam.tabbed_navigation;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
