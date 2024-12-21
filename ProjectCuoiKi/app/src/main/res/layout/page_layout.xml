@@ -9,7 +9,7 @@
         android:id="@+id/page_title"
         android:layout_width="183dp"
         android:layout_height="155dp"
-        android:background="@drawable/boder3"
+        android:background="@drawable/bo_tron"
 
         android:gravity="center"
         android:text="Item 1"

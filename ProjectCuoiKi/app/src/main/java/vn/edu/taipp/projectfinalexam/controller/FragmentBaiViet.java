@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +19,10 @@ import vn.edu.taipp.projectfinalexam.utils.Service;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentCn2#newInstance} factory method to
+ * Use the {@link FragmentBaiViet#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentCn2 extends Fragment {
+public class FragmentBaiViet extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +34,7 @@ public class FragmentCn2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentCn2() {
+    public FragmentBaiViet() {
         // Required empty public constructor
     }
     int imgArray[] = {R.drawable.cn2,R.drawable.cn2,R.drawable.cn2,R.drawable.cn2};
@@ -48,8 +47,8 @@ public class FragmentCn2 extends Fragment {
      * @return A new instance of fragment FragmentCn2.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentCn2 newInstance(String param1, String param2) {
-        FragmentCn2 fragment = new FragmentCn2();
+    public static FragmentBaiViet newInstance(String param1, String param2) {
+        FragmentBaiViet fragment = new FragmentBaiViet();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,7 +69,7 @@ public class FragmentCn2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_cn2, container, false);
+        View view = inflater.inflate(R.layout.fragment_baiviet, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         MyAdapter adapter = new MyAdapter(data,title);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

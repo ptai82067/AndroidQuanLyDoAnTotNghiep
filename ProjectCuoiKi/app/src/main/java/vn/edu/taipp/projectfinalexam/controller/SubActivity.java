@@ -25,7 +25,7 @@ public class SubActivity extends AppCompatActivity {
             if(item.getItemId()==R.id.nav_home){
                 selectedFragment = new FragmentCn1();
             } else if (item.getItemId()==R.id.nav_recy) {
-                selectedFragment = new FragmentCn2();
+                selectedFragment = new FragmentBaiVietGiangVien();
             }else if (item.getItemId()==R.id.nav_vp2) {
                 selectedFragment = new FragmentCn3();
             }else {
@@ -37,5 +37,7 @@ public class SubActivity extends AppCompatActivity {
             }
             return true;
         });
+
+
     }
 }

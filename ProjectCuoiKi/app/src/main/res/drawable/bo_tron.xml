@@ -1,0 +1,11 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Màu nền của hình tròn -->
+    <solid android:color="#C4C3C5" />
+
+    <!-- Đường viền (tùy chọn) -->
+    <stroke
+        android:width="2dp"
+        android:color="#FFFFFFFF" />
+</shape>
