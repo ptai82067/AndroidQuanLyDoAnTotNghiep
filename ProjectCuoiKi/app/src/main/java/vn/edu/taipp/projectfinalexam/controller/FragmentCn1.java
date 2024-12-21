@@ -1,22 +1,32 @@
-package vn.edu.taipp.projectfinalexam.tabbed_navigation;
+package vn.edu.taipp.projectfinalexam.controller;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
+import static androidx.fragment.app.FragmentManager.TAG;
+
+import android.annotation.SuppressLint;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 import vn.edu.taipp.projectfinalexam.R;
+import vn.edu.taipp.projectfinalexam.utils.APIClient;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LoginTabFragment#newInstance} factory method to
+ * Use the {@link FragmentCn1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LoginTabFragment extends Fragment {
+public class FragmentCn1 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +36,8 @@ public class LoginTabFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    public LoginTabFragment() {
+
+    public FragmentCn1() {
         // Required empty public constructor
     }
 
@@ -36,11 +47,11 @@ public class LoginTabFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginTabFragment.
+     * @return A new instance of fragment FragmentCn1.
      */
     // TODO: Rename and change types and number of parameters
-    public static LoginTabFragment newInstance(String param1, String param2) {
-        LoginTabFragment fragment = new LoginTabFragment();
+    public static FragmentCn1 newInstance(String param1, String param2) {
+        FragmentCn1 fragment = new FragmentCn1();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,11 +68,13 @@ public class LoginTabFragment extends Fragment {
         }
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_tab, container, false);
 
+
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_cn1, container, false);
     }
 }

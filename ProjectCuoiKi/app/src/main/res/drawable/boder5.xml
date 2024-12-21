@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu nền cho View -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Định nghĩa đường viền -->
+    <stroke
+        android:width="2dp"
+        android:color="#F6F6F6" />
+
+    <!-- Bo góc -->
+    <corners android:radius="26dp"
+        android:topRightRadius="0dp"
+        android:bottomRightRadius="0dp"/>
+    <gradient android:endColor="#2196F3"
+        android:startColor="#03A9F4"/>
+    <!-- Padding bên trong (tuỳ chọn) -->
+    <padding
+        android:left="8dp"
+        android:top="8dp"
+        android:right="8dp"
+        android:bottom="8dp" />
+</shape>
