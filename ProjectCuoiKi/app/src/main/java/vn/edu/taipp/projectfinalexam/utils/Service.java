@@ -10,6 +10,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.edu.taipp.projectfinalexam.model_dto.BaiViet;
+import vn.edu.taipp.projectfinalexam.model_dto.BinhLuan;
 import vn.edu.taipp.projectfinalexam.model_dto.BoMon;
 import vn.edu.taipp.projectfinalexam.model_dto.DoAn;
 import vn.edu.taipp.projectfinalexam.model_dto.GiangVien;
@@ -21,6 +23,8 @@ public class Service {
     private static final String DOAN_TABLE_NAME = "DoAn";
     private static final String GIANGVIEN_TABLE_NAME = "GiangVien";
     private static final String BOMON_TABLE_NAME = "BoMon";
+    private static final String BAIVIET_TABLE_NAME = "BaiViet";
+    private static final String BINHLUAN_TABLE_NAME = "BinhLuan";
 
     private final ApiService apiService;
     private final Gson gson;
@@ -34,6 +38,17 @@ public class Service {
     public interface ServiceCallback<T> {
         void onSuccess(T result);
         void onFailure(String error);
+    }
+    public void getBinhLuanList(final ServiceCallback<List<BinhLuan>> callback) {
+
+        APIDataCache cache = APIDataCache.getInstance();
+        List<BinhLuan> cachedData = cache.getListFromCache(BINHLUAN_TABLE_NAME, BinhLuan.class);
+
+        if (!cachedData.isEmpty()) {
+            callback.onSuccess(cachedData); // Trả về dữ liệu từ cache
+            return;
+        }
+        fetchListFromApi(BINHLUAN_TABLE_NAME, new TypeToken<List<BinhLuan>>() {}.getType(), callback);
     }
 
     // Lấy danh sách SinhVien
@@ -57,6 +72,17 @@ public class Service {
     // Lấy danh sách GiangVien
     public void getGiangVienList(final ServiceCallback<List<GiangVien>> callback) {
         fetchListFromApi(GIANGVIEN_TABLE_NAME, new TypeToken<List<GiangVien>>() {}.getType(), callback);
+    }
+    public void getBaiVietList(final ServiceCallback<List<BaiViet>> callback) {
+
+        APIDataCache cache = APIDataCache.getInstance();
+        List<BaiViet> cachedData = cache.getListFromCache(BAIVIET_TABLE_NAME, BaiViet.class);
+
+        if (!cachedData.isEmpty()) {
+            callback.onSuccess(cachedData); // Trả về dữ liệu từ cache
+            return;
+        }
+        fetchListFromApi(BAIVIET_TABLE_NAME, new TypeToken<List<BaiViet>>() {}.getType(), callback);
     }
 
     // Lấy danh sách BoMon

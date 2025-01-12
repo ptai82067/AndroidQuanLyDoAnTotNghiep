@@ -40,16 +40,16 @@
 
     <TextView
         android:id="@+id/tv_comment"
-        android:layout_width="359dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="68dp"
-        android:background="#DFECF6"
+        android:layout_width="389dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="28dp"
+        android:background="#F3FAFF"
         android:maxWidth="260sp"
         android:text="Chủ tịnh Nguyễn Hùng Cường nhận thừa kế thêm 5 triệu cp DIG"
         android:textColor="#161515"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_person" />
 
@@ -66,20 +66,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/tv_person" />
-
-    <TextView
-        android:id="@+id/tv_tieude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tiêu đề"
-        android:textColor="#338E36"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.504" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.taipp.projectfinalexam.R;
+import vn.edu.taipp.projectfinalexam.model_dto.BaiViet;
 import vn.edu.taipp.projectfinalexam.model_dto.SinhVien;
 import vn.edu.taipp.projectfinalexam.utils.Service;
 
@@ -28,8 +29,11 @@ public class FragmentBaiViet extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    List<String> data = new ArrayList<>();
-    List<String> title = new ArrayList<>();
+    List<String> gvs = new ArrayList<>();
+    List<String> tieudes = new ArrayList<>();
+    List<String> dates = new ArrayList<>();
+    List<String> contents = new ArrayList<>();
+    List<Integer> listID = new ArrayList<>();
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -71,17 +75,20 @@ public class FragmentBaiViet extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_baiviet, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        MyAdapter adapter = new MyAdapter(data,title);
+        MyAdapter adapter = new MyAdapter(gvs,dates,tieudes,contents);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         try {
             Service service = new Service();
-            service.getSinhVienList(new Service.ServiceCallback<List<SinhVien>>() {
+            service.getBaiVietList(new Service.ServiceCallback<List<BaiViet>>() {
                 @Override
-                public void onSuccess(List<SinhVien> sinhVienList) {
-                        for (SinhVien i : sinhVienList) {
-                            data.add(String.valueOf(i.getId()));
-                            title.add(i.getHoTen());
+                public void onSuccess(List<BaiViet> baiVietList) {
+                        for (BaiViet i : baiVietList) {
+                            gvs.add(i.getGiang_vien().getHoTen());
+                            dates.add(i.getNgayTao());
+                            tieudes.add(i.getTieuDe());
+                            contents.add(i.getNoiDung());
+                            listID.add(i.getId());
                         }
                         adapter.notifyDataSetChanged();
 
@@ -97,11 +104,19 @@ public class FragmentBaiViet extends Fragment {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
-
-
-
+        adapter.setOnItemClickListener(position -> {
+            // Lấy thông tin bài viết tại vị trí được nhấn
+            String tieude = tieudes.get(position);
+            String content = contents.get(position);
+            int id = listID.get(position);
+            // Truyền thông tin sang Fragment/Activity chi tiết bài viết
+            BaiVietDetailFragment detailFragment = BaiVietDetailFragment.newInstance(tieude, content,id);
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_container, detailFragment)
+                    .addToBackStack(null) // Cho phép quay lại
+                    .commit();
+        });
         return view;
     }
 }
