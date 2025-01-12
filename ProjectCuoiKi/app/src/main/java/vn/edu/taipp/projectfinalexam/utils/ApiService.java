@@ -3,6 +3,8 @@ package vn.edu.taipp.projectfinalexam.utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Map;
+
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -49,5 +51,6 @@ public interface ApiService {
     @DELETE("{endpoint}/{id}")
     Call<ResponseBody> delete(@Path(value = "endpoint", encoded = true) String endpoint,
                               @Path("id") String id);
-
+    @POST("dangnhap") // Endpoint của API
+    Call<Map<String, Object>> login(@Body Map<String, String> payload);
 }

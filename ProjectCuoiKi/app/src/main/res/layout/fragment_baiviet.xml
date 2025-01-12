@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,12 +9,27 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="734dp"
+        android:layout_height="549dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="182dp"
+        android:backgroundTint="#5DC3D0"
         android:padding="8dp"
         android:paddingTop="20sp" />
+
+    <ImageButton
+        android:id="@+id/btnThemBaiViet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="97dp"
+        android:backgroundTint="#FAFAFA"
+        android:src="@drawable/baseline_loupe_24"
+        app:backgroundTint="@null" />
 
 </RelativeLayout>

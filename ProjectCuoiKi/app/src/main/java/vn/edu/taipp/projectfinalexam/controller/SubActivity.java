@@ -7,7 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 import vn.edu.taipp.projectfinalexam.R;
+import vn.edu.taipp.projectfinalexam.model_dto.BaiViet;
+import vn.edu.taipp.projectfinalexam.model_dto.BinhLuan;
+import vn.edu.taipp.projectfinalexam.utils.Service;
 
 public class SubActivity extends AppCompatActivity {
 
@@ -37,6 +42,35 @@ public class SubActivity extends AppCompatActivity {
             }
             return true;
         });
+        try {
+            Service service = new Service();
+            service.getBinhLuanList(new Service.ServiceCallback<List<BinhLuan>>() {
+                @Override
+                public void onSuccess(List<BinhLuan> binhLuanList) {
+                }
+
+                @Override
+                public void onFailure(String error) {
+                    // Xử lý lỗi khi gọi API
+                    System.err.println("Error: " + error);
+                }
+            });
+
+            service.getBaiVietList(new Service.ServiceCallback<List<BaiViet>>() {
+                @Override
+                public void onSuccess(List<BaiViet> baiVietList) {
+                }
+
+                @Override
+                public void onFailure(String error) {
+                    // Xử lý lỗi khi gọi API
+                    System.err.println("Error: " + error);
+                }
+            });
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

@@ -1,11 +1,16 @@
 package vn.edu.taipp.projectfinalexam.utils;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import vn.edu.taipp.projectfinalexam.model_dto.GiangVien;
 import vn.edu.taipp.projectfinalexam.model_dto.Identifiable;
+import vn.edu.taipp.projectfinalexam.model_dto.SinhVien;
 
 public class APIDataCache {
 
@@ -13,6 +18,7 @@ public class APIDataCache {
 
     // Lưu trữ cache, mỗi String (tên bảng) ánh xạ đến một danh sách các đối tượng thực thi Identifiable
     private final Map<String, List<Identifiable>> cache = new HashMap<>();
+
 
     // Lấy instance của APIDataCache
     public static APIDataCache getInstance() {
@@ -75,4 +81,6 @@ public class APIDataCache {
         }
         return new ArrayList<>(); // Trả về danh sách rỗng nếu không tìm thấy
     }
+
+
 }

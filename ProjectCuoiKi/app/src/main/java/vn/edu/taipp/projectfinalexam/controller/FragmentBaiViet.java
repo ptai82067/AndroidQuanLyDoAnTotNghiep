@@ -1,14 +1,19 @@
 package vn.edu.taipp.projectfinalexam.controller;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +39,8 @@ public class FragmentBaiViet extends Fragment {
     List<String> dates = new ArrayList<>();
     List<String> contents = new ArrayList<>();
     List<Integer> listID = new ArrayList<>();
+    MyAdapter adapter;
+    private ImageButton btnThemBaiViet;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -75,7 +82,7 @@ public class FragmentBaiViet extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_baiviet, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        MyAdapter adapter = new MyAdapter(gvs,dates,tieudes,contents);
+        adapter = new MyAdapter(gvs,dates,tieudes,contents);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         try {
@@ -83,14 +90,12 @@ public class FragmentBaiViet extends Fragment {
             service.getBaiVietList(new Service.ServiceCallback<List<BaiViet>>() {
                 @Override
                 public void onSuccess(List<BaiViet> baiVietList) {
-                        for (BaiViet i : baiVietList) {
-                            gvs.add(i.getGiang_vien().getHoTen());
-                            dates.add(i.getNgayTao());
-                            tieudes.add(i.getTieuDe());
-                            contents.add(i.getNoiDung());
-                            listID.add(i.getId());
-                        }
-                        adapter.notifyDataSetChanged();
+                    gvs.clear();
+                    tieudes.clear();
+                    dates.clear();
+                    contents.clear();
+                    listID.clear();
+                    loadBaiVietData();
 
                 }
 
@@ -117,6 +122,50 @@ public class FragmentBaiViet extends Fragment {
                     .addToBackStack(null) // Cho phép quay lại
                     .commit();
         });
+        btnThemBaiViet = view.findViewById(R.id.btnThemBaiViet);
+        btnThemBaiViet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(getContext(),ThemBaiViet.class);
+                startActivityForResult(myIntent, 1);
+            }
+        });
         return view;
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 99) {
+            // Gọi lại API để lấy danh sách bài viết mới và cập nhật
+            gvs.clear();
+            tieudes.clear();
+            dates.clear();
+            contents.clear();
+            listID.clear();
+            loadBaiVietData();
+        }
+    }
+
+    private void loadBaiVietData() {
+        Service service = new Service();
+        service.getBaiVietList(new Service.ServiceCallback<List<BaiViet>>() {
+            @Override
+            public void onSuccess(List<BaiViet> baiVietList) {
+                for (BaiViet i : baiVietList) {
+                    gvs.add(i.getGiang_vien().getHoTen());
+                    dates.add(i.getNgayTao());
+                    tieudes.add(i.getTieuDe());
+                    contents.add(i.getNoiDung());
+                    listID.add(i.getId());
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(String error) {
+                System.err.println("Error: " + error);
+            }
+        });
+    }
+
 }

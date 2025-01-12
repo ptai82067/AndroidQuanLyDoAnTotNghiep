@@ -1,5 +1,7 @@
 package vn.edu.taipp.projectfinalexam.controller;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,6 +104,11 @@ public class  FragmentCn3 extends Fragment {
                 viewPager.setCurrentItem(2);
             }
         });
+
+
+
+
+
 
         return view;
     }

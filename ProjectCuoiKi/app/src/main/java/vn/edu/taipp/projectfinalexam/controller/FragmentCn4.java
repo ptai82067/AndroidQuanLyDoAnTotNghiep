@@ -1,5 +1,7 @@
 package vn.edu.taipp.projectfinalexam.controller;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import vn.edu.taipp.projectfinalexam.R;
 
@@ -61,6 +64,19 @@ public class FragmentCn4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cn4, container, false);
+        View view = inflater.inflate(R.layout.fragment_cn4, container, false);
+        // Lấy SharedPreferences
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
+
+// Truy xuất các giá trị đã lưu
+        String hoTen = sharedPreferences.getString("HoTen", ""); // Giá trị mặc định là ""
+        String email = sharedPreferences.getString("Email", ""); // Giá trị mặc định là ""
+        int id = sharedPreferences.getInt("Id", 0); // Giá trị mặc định là ""
+        String role = sharedPreferences.getString("Role", ""); // Giá trị mặc định là ""
+        int userId = sharedPreferences.getInt("UserId", -1); // Giá trị mặc định là -1 nếu không tìm thấy
+
+// Sử dụng thông tin đã lấy
+        Toast.makeText(getContext(), role + "--"+id, Toast.LENGTH_SHORT).show();
+        return view;
     }
 }

@@ -1,25 +1,15 @@
 package vn.edu.taipp.projectfinalexam.controller;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.annotation.SuppressLint;
-import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import java.io.IOException;
 
 import vn.edu.taipp.projectfinalexam.R;
-import vn.edu.taipp.projectfinalexam.utils.APIClient;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,7 +64,12 @@ public class FragmentCn1 extends Fragment {
                              Bundle savedInstanceState) {
 
 
+        View view = inflater.inflate(R.layout.fragment_cn1, container, false);
+
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cn1, container, false);
+        return view;
     }
 }

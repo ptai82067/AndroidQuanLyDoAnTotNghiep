@@ -11,8 +11,13 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.List;
+
 import vn.edu.taipp.projectfinalexam.R;
+import vn.edu.taipp.projectfinalexam.model_dto.BaiViet;
+import vn.edu.taipp.projectfinalexam.model_dto.BinhLuan;
 import vn.edu.taipp.projectfinalexam.tabbed_navigation.ViewPagerAdapter;
+import vn.edu.taipp.projectfinalexam.utils.Service;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
@@ -50,7 +55,35 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+        try {
+            Service service = new Service();
+            service.getBinhLuanList(new Service.ServiceCallback<List<BinhLuan>>() {
+                @Override
+                public void onSuccess(List<BinhLuan> binhLuanList) {
+                }
 
+                @Override
+                public void onFailure(String error) {
+                    // Xử lý lỗi khi gọi API
+                    System.err.println("Error: " + error);
+                }
+            });
+
+            service.getBaiVietList(new Service.ServiceCallback<List<BaiViet>>() {
+                @Override
+                public void onSuccess(List<BaiViet> baiVietList) {
+                }
+
+                @Override
+                public void onFailure(String error) {
+                    // Xử lý lỗi khi gọi API
+                    System.err.println("Error: " + error);
+                }
+            });
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 //    private void getAPI() {

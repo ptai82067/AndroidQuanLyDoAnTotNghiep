@@ -15,51 +15,58 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_height="546dp"
             android:layout_marginTop="20dp"
+            android:orientation="vertical"
             android:padding="20dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:src="@drawable/loginimg"/>
+                android:src="@drawable/loginimg" />
 
             <EditText
+                android:id="@+id/edt_username"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/login_email"
                 android:layout_marginTop="30dp"
-                android:padding="8dp"
-                android:hint="Email"
+                android:background="@drawable/edittext_bkg"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="8dp"
-                android:background="@drawable/edittext_bkg"/>
+                android:hint="Email"
+                android:padding="8dp" />
 
             <EditText
+                android:id="@+id/edt_password"
                 android:layout_width="300dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:id="@+id/login_password"
                 android:layout_marginTop="20dp"
-                android:padding="8dp"
-                android:hint="Password"
-                android:inputType="textPassword"
+                android:background="@drawable/edittext_bkg"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:background="@drawable/edittext_bkg"/>
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="8dp" />
 
 
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:id="@+id/login_button"
-                android:textSize="18sp"
                 android:text="Login"
-                app:cornerRadius = "30dp"/>
+                android:textSize="18sp"
+                app:cornerRadius="30dp" />
+
+            <TextView
+                android:id="@+id/tv_error_message"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:gravity="center"
+                android:textColor="#E61515" />
 
         </LinearLayout>
 

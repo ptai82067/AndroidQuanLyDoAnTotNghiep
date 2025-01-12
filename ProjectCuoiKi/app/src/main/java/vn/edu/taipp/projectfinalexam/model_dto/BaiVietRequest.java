@@ -12,12 +12,11 @@ public class BaiVietRequest {
   }
 
   // Constructor đầy đủ tham số
-  public BaiVietRequest(String tieuDe, String noiDung, String ngayTao, int maNguoiTao, String tinhTrang) {
+  public BaiVietRequest(String tieuDe, String noiDung, String ngayTao, int maNguoiTao ) {
     this.TieuDe = tieuDe;
     this.NoiDung = noiDung;
     this.NgayTao = ngayTao;
     this.MaNguoiTao = maNguoiTao;
-    this.TinhTrang = tinhTrang;
   }
 
   // Getter và Setter
